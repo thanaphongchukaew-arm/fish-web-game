@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🐠 ตู้ปลาของฉัน</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="chip">🌅 วันที่ <b id="hDay">1</b></div>
+  <div class="chip">⏱ <b id="hTime">00:00</b></div>
+  <div class="chip">🪙 <b id="hCoins">150</b></div>
+  <div class="chip">🐠 <b id="hFish">1</b> ตัว</div>
+  <div class="chip">🏆 <b id="hAch">0</b>/9 รางวัล</div>
+</div>
+
+<!-- TANK -->
+<div class="tank-wrap">
+  <canvas id="gameCanvas" width="700" height="400"></canvas>
+  <div class="dirty-badge">
+    <div class="dirty-label" id="dirtyLabel">ตู้สะอาด</div>
+    <div class="dirty-track">
+      <div class="dirty-fill" id="dirtyFill" style="width:100%;background:#22c55e"></div>
+    </div>
+  </div>
+  <div class="food-badge" id="foodBadge">🍖 อาหารธรรมดา</div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button class="btn btn-feed"  onclick="feedFish()">🍖 ให้อาหาร</button>
+  <button class="btn btn-clean" onclick="cleanTank()">🧹 ทำความสะอาด</button>
+  <button class="btn btn-shop"  onclick="openShop()">🏪 ร้านค้า</button>
+  <button class="btn btn-breed" id="btnBreed" onclick="breedFish()">💕 ผสมพันธุ์</button>
+</div>
+
+<div class="hint">💡 คลิกปลา = ลูบหัว (+ความสุข) &nbsp;|&nbsp; คลิกขวาในตู้ = โยนอาหาร</div>
+
+<!-- FISH CARDS -->
+<div class="fish-grid" id="fishGrid"></div>
+
+<!-- SHOP OVERLAY -->
+<div class="overlay" id="shopOverlay">
+  <div class="modal">
+    <button class="btn-modal-close" onclick="closeShop()">✕</button>
+    <div class="modal-title">🏪 ร้านค้า</div>
+    <div id="shopContent"></div>
+    <button class="btn-close" onclick="closeShop()">✕ ปิดร้านค้า</button>
+  </div>
+</div>
+
+<!-- TOASTS -->
+<div id="toasts"></div>
+<div id="achPopup"></div>
+
+<script src="game.js"></script>
+</body>
+</html>
